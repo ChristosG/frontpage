@@ -1,0 +1,198 @@
+.custom-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: @white;
+  padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s, background 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  &.hidden {
+    top: -80px;
+  }
+
+  &.visible {
+    top: 0;
+  }
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  flex-shrink: 0;
+
+  img {
+    display: flex;
+    height: 25px;
+  }
+}
+
+.menu {
+  flex: 1 1 auto;
+  margin-left: 20px;
+  overflow: hidden;
+
+  .ant-menu {
+    line-height: 64px;
+  }
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 5%;
+  .search-button {
+    margin-right: 10px;
+  }
+
+  .country-flag {
+    width: 36px;
+    height: 27px;
+    margin-right: 10px;
+   // border-radius: 50%;
+  }
+
+  .dark-mode-switch {
+    margin-right: 10px;
+  }
+
+  .ant-btn {
+    margin-right: 10px;
+  }
+}
+
+.mobile-icons {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  .search-button {
+    margin-right: 5px;
+  }
+
+  .country-flag {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+  }
+
+  .dark-mode-switch {
+    margin-right: 5px;
+  }
+
+  .ant-btn {
+    margin-right: 5px;
+  }
+}
+
+.search-bar {
+  position: absolute;
+  top: 64px; 
+  width: 99%;
+  padding: 10px;
+  background: @white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+
+  .ant-input-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-banner {
+    padding: 0 10px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .right-icons {
+    display: none;
+  }
+
+  .mobile-icons {
+    margin-right: 7%;
+    .ant-btn {
+      padding: 0 8px;
+      height: 32px;
+    }
+
+    .search-button,
+    .dark-mode-switch,
+    .country-flag {
+      margin-right: 5px;
+    }
+  }
+
+  .search-bar {
+    top: 56px; 
+    width: 95%;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-icons {
+    display: none;
+  }
+}
+
+.dark-mode {
+  .custom-banner {
+    background: @black;
+    color: @white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+
+    .ant-menu {
+      background: transparent;
+      color: @white;
+
+      .ant-menu-item {
+        color: @white;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .ant-menu-submenu-title {
+        color: @white;
+      }
+    }
+
+    .ant-btn {
+      background: @dark-gray;
+      color: @white;
+      border: none;
+
+      &:hover {
+        background: @gray;
+      }
+    }
+  }
+
+  .search-bar {
+    background: @black;
+    .ant-input-search {
+      .ant-input {
+        background: @dark-gray;
+        color: @white;
+      }
+    }
+  }
+}
+
+@white: #ffffff;
+@black: #000000;
+@dark-gray: #333333;
+@gray: #555555;
